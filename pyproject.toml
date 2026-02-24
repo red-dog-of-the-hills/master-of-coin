@@ -1,0 +1,39 @@
+[project]
+name = "master-of-coin"
+version = "0.1.0"
+description = "Portfolio tracking application"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["fastapi[standard]>=0.132.0"]
+
+[dependency-groups]
+dev = [
+  "black>=26.1.0",
+  "prek>=0.3.3",
+  "pytest>=9.0.2",
+  "pytest-cov>=7.0.0",
+  "pytest-sugar>=1.1.1",
+  "ruff>=0.15.2",
+  "rust-just>=1.46.0",
+]
+
+[tool.pytest.ini_options]
+addopts = "-ra -v -W error --strict-markers --strict-config"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["api"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 90
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
