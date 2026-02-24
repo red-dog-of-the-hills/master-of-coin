@@ -21,9 +21,9 @@ ENV/
 # Testing / Coverage
 .pytest_cache/
 .coverage
+.coverage.*
 htmlcov/
 .tox/
-.noseresults/
 
 # Linting / Formatting
 .ruff_cache/
