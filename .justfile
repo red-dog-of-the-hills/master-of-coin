@@ -1,9 +1,7 @@
 format-check:
-  black --check .
   ruff format --check
 
 format:
-  black .
   ruff format
 
 lint-check:

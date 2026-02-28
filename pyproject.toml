@@ -8,7 +8,6 @@ dependencies = ["fastapi[standard]>=0.132.0"]
 
 [dependency-groups]
 dev = [
-  "black>=26.1.0",
   "prek>=0.3.3",
   "pyright>=1.1.408",
   "pytest>=9.0.2",
@@ -30,10 +29,6 @@ source = ["api"]
 show_missing = true
 skip_covered = true
 fail_under = 90
-
-[tool.black]
-line-length = 88
-target-version = ["py312"]
 
 [tool.ruff]
 line-length = 88
