@@ -7,3 +7,6 @@ lint-check:
 
 test:
   pytest
+
+test-cov:
+  python -m pytest --cov --cov-report=xml
