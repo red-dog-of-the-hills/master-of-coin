@@ -4,5 +4,5 @@ app = FastAPI()
 
 
 @app.get("/")
-async def heartbeat():
+async def heartbeat() -> dict[str, bool]:
     return {"Status": True}
