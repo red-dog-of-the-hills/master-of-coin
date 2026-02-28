@@ -1,3 +1,7 @@
+name: "Setup Environment"
+
+description: "Set up Python, install uv, and sync dependencies"
+
 runs:
   using: "composite"
   steps:
@@ -12,4 +16,5 @@ runs:
         version: "0.10.4"
 
     - name: Install the project
+      shell: bash
       run:  uv sync --locked --all-extras --dev
