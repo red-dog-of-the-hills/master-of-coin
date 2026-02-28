@@ -44,8 +44,6 @@ convention = "pep257"
 
 [tool.pyright]
 typeCheckingMode = "strict"
-reportMissingTypeArgument = "error"
-reportUnknownParameterType = "error"
 pythonVersion = "3.12"
-venvPath = "."
-venv = ".venv"
+reportImplicitOverride = "error"
+reportUnnecessaryTypeIgnoreComment = "error"

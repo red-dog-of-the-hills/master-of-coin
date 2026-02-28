@@ -6,6 +6,8 @@ format:
 
 lint-check:
   ruff check
+
+type-check:
   pyright
 
 test:
