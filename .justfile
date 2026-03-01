@@ -15,3 +15,5 @@ test:
 
 test-cov:
   python -m pytest --cov --cov-report=xml
+
+verify: format-check lint-check type-check test
