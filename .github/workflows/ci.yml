@@ -11,7 +11,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  Lint:
+  Format-Check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-env
+
+      - name: Check Formatting
+        run:  uv run just format-check
+
+  Lint-Check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -20,14 +29,14 @@ jobs:
       - name: Check Lint
         run:  uv run just lint-check
 
-  Format:
+  Type-Check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup-env
 
-      - name: Check Formatting
-        run:  uv run just format-check
+      - name: Run type checker
+        run:  uv run just type-check
 
   Test:
     runs-on: ${{ matrix.os }}

@@ -4,12 +4,15 @@ version = "0.1.0"
 description = "Portfolio tracking application"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["fastapi[standard]>=0.132.0"]
+dependencies = [
+    "fastapi>=0.134.0",
+]
 
 [dependency-groups]
 dev = [
-  "black>=26.1.0",
+  "httpx>=0.28.1",
   "prek>=0.3.3",
+  "pyright>=1.1.408",
   "pytest>=9.0.2",
   "pytest-cov>=7.0.0",
   "pytest-sugar>=1.1.1",
@@ -30,10 +33,44 @@ show_missing = true
 skip_covered = true
 fail_under = 90
 
-[tool.black]
-line-length = 88
-target-version = ["py312"]
-
 [tool.ruff]
 line-length = 88
 target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle errors
+  "F",   # Pyflakes
+  "B",   # flake8-bugbear
+  "I",   # isort
+  "UP",  # pyupgrade
+  "SIM", # flake8-simplify
+  "C4",  # flake8-comprehensions
+  "PIE", # flake8-pie
+  "RUF", # Ruff-specific rules
+  "S",   # flake8-bandit (Security)
+  "D",   # pydocstyle
+]
+
+ignore = [
+  "D100", # Missing docstring in public module
+  "D101", # Missing docstring in public class
+  "D102", # Missing docstring in public method
+  "D103", # Missing docstring in public function
+  "D104", # Missing docstring in public package
+  "D105", # Missing docstring in magic method
+  "D107", # Missing docstring in __init__
+]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/**/test_*.py" = ["S101"]
+"tests/**" = ["INP001"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
+
+[tool.pyright]
+typeCheckingMode = "strict"
+pythonVersion = "3.12"
+reportImplicitOverride = "error"
+reportUnnecessaryTypeIgnoreComment = "error"

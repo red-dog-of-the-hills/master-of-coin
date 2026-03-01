@@ -1,12 +1,12 @@
-from typing import Generator
+from collections.abc import Generator
 
+import pytest
 from fastapi.testclient import TestClient
-from pytest import fixture
 
 from api.main import app
 
 
-@fixture()
+@pytest.fixture
 def client() -> Generator[TestClient, None, None]:
     with TestClient(app) as client:
         yield client
