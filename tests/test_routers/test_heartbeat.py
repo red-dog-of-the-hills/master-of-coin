@@ -3,7 +3,7 @@ from fastapi.testclient import TestClient
 
 
 def test_heartbeat(client: TestClient) -> None:
-    response = client.get("/")
+    response = client.get("/heartbeat")
 
     assert response.status_code == status.HTTP_200_OK
-    assert response.json() == {"Status": True}
+    assert response.json() == {"status": True}

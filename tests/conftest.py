@@ -1,12 +1,11 @@
-from collections.abc import Generator
+import os
 
 import pytest
-from fastapi.testclient import TestClient
 
-from api.main import app
+from api.config import Environment, get_config
 
 
-@pytest.fixture
-def client() -> Generator[TestClient, None, None]:
-    with TestClient(app) as client:
-        yield client
+@pytest.fixture(scope="session", autouse=True)
+def set_environment() -> None:
+    get_config.cache_clear()
+    os.environ["APP_ENV"] = Environment.TEST.value

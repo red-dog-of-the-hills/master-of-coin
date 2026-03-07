@@ -17,3 +17,6 @@ test-cov:
   python -m pytest --cov --cov-report=xml
 
 verify: format-check lint-check type-check test
+
+dev-server:
+  APP_ENV=DEV python -m api
