@@ -5,6 +5,6 @@ from api.config import Settings
 router = APIRouter()
 
 
-@router.get("/")
+@router.get("")
 def heartbeat(settings: Settings) -> dict[str, bool | str]:
     return {"status": True, "mode": settings.APP_ENV.value}

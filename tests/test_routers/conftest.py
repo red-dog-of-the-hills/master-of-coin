@@ -6,7 +6,7 @@ from fastapi.testclient import TestClient
 from api.main import create_api
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def client() -> Generator[TestClient, None, None]:
     api = create_api()
 
